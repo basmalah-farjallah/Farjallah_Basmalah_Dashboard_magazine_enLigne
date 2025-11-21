@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | WAR ROOM E-COMMERCE</title>
+    <title>Dashboard | ShopFlow E-COMMERCE</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="dash.css">
 </head>
 <body onload="verifierAuthentification()"> 
-    
     <header class="dashboard-header">
         <div class="header-content">
             <h1 class="logo-title">WAR ROOM <span>E-COMMERCE</span></h1>
@@ -19,11 +18,9 @@
         </div>
     </header>
 
-    <main class="dashboard-main">
-        
+    <main class="dashboard-main"> 
         <section class="filtres card">
-            <h2>Filtres Rapides</h2>
-            
+            <h2>Filtres</h2>
             <div class="filtres-groupes"> 
                 <div class="filter-group">
                     <label for="periodeFiltre">Période :</label>
@@ -34,7 +31,6 @@
                         <option value="annee">Année en cours</option>
                     </select>
                 </div>
-
                 <div class="filter-group">
                     <label for="categorieFiltre">Catégorie :</label>
                     <select id="categorieFiltre">
@@ -42,9 +38,7 @@
                         </select>
                 </div>
             </div>
-
         </section>
-
         <section class="kpis-container">
             <div class="kpi-card card">
                 <h3>Chiffre d'Affaires Total (TND)</h3>
@@ -59,23 +53,19 @@
                 <p id="produitPopulaire" class="kpi-value-text">Non défini</p>
             </div>
         </section>
-        
         <section class="graphiques-section">
             <h2>Analyse Visuelle </h2>
             <div class="graphiques-container">
-                
                 <div class="chart-box card">
                     <h3>Chiffre d'Affaires par Catégorie</h3>
                     <canvas id="ventesParCategorieChart"></canvas> 
                 </div>
-                
                 <div class="chart-box card">
                     <h3>Distribution des Stocks Actuels</h3>
                     <canvas id="stockParProduitChart"></canvas>
                 </div>
             </div>
         </section>
-        
         <section class="tableau-produits card">
             <h2>Détails des Produits Filtrés</h2>
             <div class="table-wrapper">
@@ -94,13 +84,12 @@
                 </table>
             </div>
         </section>
-
     </main>
-
     <footer>
-        <p>WAR ROOM E-COMMERCE 2025</p>
+        <p>ShopFlow E-COMMERCE 2025</p>
     </footer>
 
     <script src="dash.js"></script>
 </body>
+
 </html>
