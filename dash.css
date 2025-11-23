@@ -224,6 +224,21 @@ footer {
     font-weight: 500; 
     min-height: 20px; /* réserve de l'espace pour le message d'erreur */
 }
+/* Responsivité */
+/* Pour les tablettes(max 1024px) */
+@media (max-width: 1024px) {
+    .graphiques-container { flex-direction: column; }
+    .chart-box { max-width: 100%; min-width: 100%; }
+    #ventesParCategorieChart, #stockParProduitChart { max-height: 400px; }
+}
+/* Pour les téléphones mobiles (max 768px) */
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; gap: 10px; }
+    .kpis-container { flex-direction: column; }
+    .kpi-card { padding: 15px; }
+    .kpi-value, .kpi-value-text { font-size: 1.8em; }
+    .dashboard-main { padding: 10px; }
+}
 
 
 
