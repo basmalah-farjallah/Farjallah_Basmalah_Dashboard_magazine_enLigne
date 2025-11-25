@@ -4,92 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | ShopFlow E-COMMERCE</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="dash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body onload="verifierAuthentification()"> 
-    <header class="dashboard-header">
-        <div class="header-content">
-            <h1 class="logo-title">WAR ROOM <span>E-COMMERCE</span></h1>
-            <nav class="user-nav">
-                <span class="user-info">Bienvenue, Administrateur</span>
-                <button class="logout-btn">Déconnexion</button>
-            </nav>
+<body>
+    <!--PAGE DE LOGIN-->
+    <div id="login-body">
+        <div class="login-container">
+            <h1 class="login-title">ShopFlow Admin Login</h1>
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <label for="username">Nom d'utilisateur :</label>
+                    <input type="text" id="username" required autocomplete="username">
+                </div>
+                <div class="input-group">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" required autocomplete="current-password">
+                </div>
+                <p id="messageErreur" class="error-message"></p>
+                <button type="submit" class="login-btn">Se Connecter</button>
+            </form>
         </div>
-    </header>
-
-    <main class="dashboard-main"> 
-        <section class="filtres card">
-            <h2>Filtres</h2>
-            <div class="filtres-groupes"> 
-                <div class="filter-group">
-                    <label for="periodeFiltre">Période :</label>
-                    <select id="periodeFiltre">
-                        <option value="tous">Toutes les Périodes</option>
-                        <option value="7j">7 Derniers Jours</option>
-                        <option value="30j">30 Derniers Jours</option>
-                        <option value="annee">Année en cours</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="categorieFiltre">Catégorie :</label>
-                    <select id="categorieFiltre">
-                        <option value="tous">Toutes les Catégories</option>
+    </div>
+    <!--DASHBOARD (caché au départ)-->
+    <div id="dashboard" style="display: none;"> <!-- cette ligne nous permet d'accéder à la page login en premier lieu.-->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1 class="logo-title">ShopFlow <span>E-COMMERCE</span></h1>
+                <nav class="user-nav">
+                    <span class="user-info">Bienvenue, Administrateur</span>
+                    <button class="logout-btn">Déconnexion</button>
+                </nav>
+            </div>
+        </header>
+        <main class="dashboard-main">
+            <section class="filtres card">
+                <h2>Filtres Rapides</h2>
+                <div class="filtres-groupes">
+                    <div class="filter-group">
+                        <label for="periodeFiltre">Période :</label>
+                        <select id="periodeFiltre">
+                            <option value="tous">Toutes les Périodes</option>
+                            <option value="7j">7 Derniers Jours</option>
+                            <option value="30j">30 Derniers Jours</option>
+                            <option value="annee">Année en cours</option>
                         </select>
+                    </div>
+                    <div class="filter-group"> <!--les options des categories ce fait d'une façon dynamique en s'adaptant au besion pour faciliter le filtrage selon catégorie et période.-->
+                        <label for="categorieFiltre">Catégorie :</label>
+                        <select id="categorieFiltre">
+                            <option value="tous">Toutes les Catégories</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section class="kpis-container">
-            <div class="kpi-card card">
-                <h3>Chiffre d'Affaires Total (TND)</h3>
-                <p id="totalVentes" class="kpi-value">0.000 DT</p>
-            </div>
-            <div class="kpi-card card">
-                <h3>Stock Total Restant</h3>
-                <p id="totalStock" class="kpi-value">0 unités</p>
-            </div>
-            <div class="kpi-card kpi-highlight card">
-                <h3>Produit Vedette </h3>
-                <p id="produitPopulaire" class="kpi-value-text">Non défini</p>
-            </div>
-        </section>
-        <section class="graphiques-section">
-            <h2>Analyse Visuelle </h2>
-            <div class="graphiques-container">
-                <div class="chart-box card">
-                    <h3>Chiffre d'Affaires par Catégorie</h3>
-                    <canvas id="ventesParCategorieChart"></canvas> 
+            </section>
+            <section class="kpis-container">
+                <div class="kpi-card card">
+                    <h3>Chiffre d'Affaires Total (TND)</h3>
+                    <p id="totalVentes" class="kpi-value">0.000 DT</p>
                 </div>
-                <div class="chart-box card">
-                    <h3>Distribution des Stocks Actuels</h3>
-                    <canvas id="stockParProduitChart"></canvas>
+                <div class="kpi-card card">
+                    <h3>Stock Total Restant</h3>
+                    <p id="totalStock" class="kpi-value">0 unités</p>
                 </div>
-            </div>
-        </section>
-        <section class="tableau-produits card">
-            <h2>Détails des Produits Filtrés</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nom du Produit</th>
-                            <th>Catégorie</th>
-                            <th>Prix Unitaire (TND)</th>
-                            <th>Stock</th>
-                            <th>Unités Vendues Filtrées</th>
-                        </tr>
-                    </thead>
-                    <tbody id="corpsTableauProduits">
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>ShopFlow E-COMMERCE 2025</p>
-    </footer>
+                <div class="kpi-card kpi-highlight card">
+                    <h3>Produit Vedette</h3>
+                    <p id="produitPopulaire" class="kpi-value-text">Non défini</p>
+                </div>
+            </section>
+            <section class="graphiques-section">
+                <h2>Analyse Visuelle</h2>
+                <div class="graphiques-container">
+                    <div class="chart-box card">
+                        <h3>Chiffre d'Affaires par Catégorie</h3>
+                        <canvas id="ventesParCategorieChart"></canvas>
+                    </div>
+                    <div class="chart-box card">
+                        <h3>Distribution des Stocks Actuels</h3>
+                        <canvas id="stockParProduitChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            <section class="tableau-produits card">
+                <h2>Détails des Produits Filtrés</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom du Produit</th>
+                                <th>Catégorie</th>
+                                <th>Prix Unitaire (TND)</th>
+                                <th>Stock</th>
+                                <th>Unités Vendues Filtrées</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpsTableauProduits"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>ShopFlow E-COMMERCE 2025</p>
+        </footer>
+    </div>
 
     <script src="dash.js"></script>
 </body>
-
 </html>
+
