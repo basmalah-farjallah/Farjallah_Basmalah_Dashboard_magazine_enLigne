@@ -166,7 +166,7 @@ footer {
     border-top: 1px solid #eee;
 }
 /* Login */
-.login-body { 
+#login-body { 
     /* centrage parfait vertical et horizontal */
     display: flex; 
     justify-content: center; 
@@ -239,6 +239,7 @@ footer {
     .kpi-value, .kpi-value-text { font-size: 1.8em; }
     .dashboard-main { padding: 10px; }
 }
+
 
 
 
