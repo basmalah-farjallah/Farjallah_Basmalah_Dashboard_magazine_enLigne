@@ -41,7 +41,7 @@ h2 {
     margin: 0 auto;
     padding: 15px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Logo à gauche, nav à droite */
     align-items: center;
 }
 .logo-title {
@@ -71,7 +71,7 @@ h2 {
 /* KPIs */
 .kpis-container { display: flex; gap: 20px; }
 .kpi-card { 
-    flex-grow: 1; 
+    flex-grow: 1; /* Prend toute la place disponible */
     padding: 20px; 
     /* bordure primaire (bleu) */
     border-left: 5px solid #007bff; 
@@ -100,7 +100,7 @@ h2 {
 .filtres-groupes { 
     display: flex;
     gap: 30px;
-    flex-wrap: wrap; }
+    flex-wrap: wrap; } /* Passe à la ligne sur petits écrans */
 .filter-group { 
     display: flex; 
     flex-direction: column; 
@@ -125,7 +125,7 @@ h2 {
 .chart-box {
     flex: 1; 
     padding: 20px; 
-    max-width: 50%; 
+    max-width: 50%; /* 2 colonnes sur grand écran */
     min-width: 350px;
 }
 .chart-box h3 { 
@@ -133,14 +133,15 @@ h2 {
     color: #2c3e50; 
     font-weight: 500; 
     margin-bottom: 15px; }
-#ventesParCategorieChart, #stockParProduitChart { max-height: 350px; } 
+#ventesParCategorieChart, #stockParProduitChart { max-height: 350px; } /* Hauteur maximale pour garder les graphiques propres */
 /* Tableau*/
 .table-wrapper { overflow-x: auto; }
 table { 
     width: 100%; 
     border-collapse: separate; 
     border-spacing: 0; 
-    min-width: 700px; }
+    min-width: 700px; } /* Évite le rétrécissement excessif */
+}
 thead tr { 
     background-color: #2c3e50; 
     color: white; 
@@ -239,6 +240,7 @@ footer {
     .kpi-value, .kpi-value-text { font-size: 1.8em; }
     .dashboard-main { padding: 10px; }
 }
+
 
 
 
