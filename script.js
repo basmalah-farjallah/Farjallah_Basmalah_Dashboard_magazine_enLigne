@@ -28,6 +28,8 @@ document.querySelector('.logout-btn').addEventListener('click', () => {
     localStorage.removeItem('isLoggedIn');
     loginPage.style.display = 'flex';
     dashboard.style.display = 'none';
+    document.getElementById('loginForm').reset();
+    document.getElementById('messageErreur').textContent = '';
 });
 //DASHBOARD 
 // Fonction qui récupére les données d'une certaine date
@@ -117,5 +119,6 @@ function mettreAJourDashboard(data) {
 document.getElementById('periodeFiltre').addEventListener('change', appliquerFiltres);
 document.getElementById('categorieFiltre').addEventListener('change', appliquerFiltres);
            
+
 
 
