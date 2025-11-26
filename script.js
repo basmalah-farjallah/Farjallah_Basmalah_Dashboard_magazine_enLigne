@@ -116,8 +116,6 @@ function mettreAJourDashboard(data) {
 //pour rendre la dashboard interactif dés qu'on change une valeur tout se recalcule et se rafraichit automatiquement
 document.getElementById('periodeFiltre').addEventListener('change', appliquerFiltres);
 document.getElementById('categorieFiltre').addEventListener('change', appliquerFiltres);
-            inputPassword.value = '';
-        }
-    });
-});
+           
+
 
