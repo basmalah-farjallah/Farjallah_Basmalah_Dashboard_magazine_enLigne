@@ -8,6 +8,7 @@ Ce projet consiste en la création d’un tableau de bord administratif complet 
 **Technologies Utilisées :
 
 o HTML5 : structure claire et sémantique
+
 o CSS3 : design moderne avec Flexbox, ombres douces, palette bleu/jaune, approche mobile-first et responsivité complète
 o JavaScript : logique dynamique, gestion des événements, calculs en temps réel
 o Chart.js : graphiques interactifs (barres et doughnut)
