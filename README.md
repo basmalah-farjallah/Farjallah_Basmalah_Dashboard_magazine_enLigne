@@ -45,7 +45,7 @@ o Mise à jour fluide des graphiques
 
 Difficulté : Recréer les graphiques à chaque filtre provoquait des clignotements.
 
-Solution : Initialisation unique des instances Chart.js + mise à jour via .update() → rendu instantané et sans saccades.
+Solution : Initialisation unique des instances Chart.js + mise à jour via .update() d'où rendu instantané et sans saccades.
 
 o Filtrage combiné (catégorie + période)
 
