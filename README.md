@@ -72,6 +72,8 @@ Difficulté : Les deux graphiques n’avaient pas la même hauteur d'où aspect 
 
 Solution : Hauteur fixe (350px) forcée en CSS + maintainAspectRatio: false dans Chart.js d'où alignement impeccable sur tous les écrans.
 
+** Lien  vers la page GitHub Pages : https://github.com/basmalah-farjallah/Farjallah_Basmalah_Dashboard_magazine_enLigne/settings/pages
+
 =>Le dashboard final est fonctionnel, esthétique, rapide et entièrement responsive.
 
 
