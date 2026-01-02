@@ -3,7 +3,7 @@ Développement d’un Dashboard Administratif – ShopFlow E-Commerce
 
 **Description du Projet :
 
-Ce projet consiste en la création d’un tableau de bord administratif complet pour la boutique en ligne ShopFlow. Il permet à l’administrateur de suivre en temps réel les performances commerciales : chiffre d’affaires, état des stocks et popularité des produits. L’accès est sécurisé par une page de connexion, et toutes les données s’actualisent instantanément selon les filtres choisis. Le dashboard propose des indicateurs clés (KPIs), deux graphiques interactifs, un tableau dynamique et une interface moderne, entièrement réalisée en HTML, CSS et JavaScript (sans backend).
+Ce projet consiste à la création d’un tableau de bord administratif complet pour la boutique en ligne ShopFlow. Il permet à l’administrateur de suivre en temps réel les performances commerciales : chiffre d’affaires, état des stocks et popularité des produits. L’accès est sécurisé par une page de connexion, et toutes les données s’actualisent instantanément selon les filtres choisis. Le dashboard propose des indicateurs clés, deux graphiques interactifs, un tableau dynamique et une interface moderne, entièrement réalisée en HTML, CSS et JavaScript.
 
 **Technologies Utilisées :
 
