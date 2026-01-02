@@ -59,6 +59,7 @@ function initialiserDashboard() {
 //parcourt tout les produits et récupére leurs catégories sans doublons et remplis le menu déroulant avec ses catégories
 function remplirCategories() {
     const select = document.getElementById('categorieFiltre');
+    //Vider le select avant de le remplir
     select.innerHTML = '';
     [...new Set(produits.map(p => p.categorie))].forEach(cat => {
         const opt = document.createElement('option');
@@ -120,6 +121,7 @@ function mettreAJourDashboard(data) {
 document.getElementById('periodeFiltre').addEventListener('change', appliquerFiltres);
 document.getElementById('categorieFiltre').addEventListener('change', appliquerFiltres);
            
+
 
 
 
