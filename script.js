@@ -108,11 +108,13 @@ function mettreAJourDashboard(data) {
 
     // Graphiques
     //répartition du stock par produit
+    //Calcul du CA par catégorie
     const caParCat = data.reduce((a,p) => { a[p.categorie] = (a[p.categorie]||0) + p.totalVentes*p.prix; return a; }, {}); //récupére le CA par catégorie
+    //Préparation des données et création/mise à jour du graphique des ventes (bar chart)
     const dataCA = { labels: Object.keys(caParCat), datasets: [{ data: Object.values(caParCat), backgroundColor: couleurs }] };
     if (!ventesChart) ventesChart = new Chart('ventesParCategorieChart', { type:'bar', data: dataCA, options:{responsive:true, maintainAspectRatio:false, scales:{y:{beginAtZero:true}}}});//creation et affichage du graphique pour la 1ere fois
     else { ventesChart.data = dataCA; ventesChart.update(); } //graphique existe déja on le récupére et le mis àjour avec .update 
-
+    //Préparation des données et création/mise à jour du graphique du stock (doughnut)
     const dataStock = { labels: data.map(p=>p.nom), datasets: [{ data: data.map(p=>p.stock), backgroundColor: couleurs }] };
     if (!stockChart) stockChart = new Chart('stockParProduitChart', { type:'doughnut', data: dataStock, options:{responsive:true, aspectRatio:1, plugins:{legend:{position:'bottom'}}}});
     else { stockChart.data = dataStock; stockChart.update(); }
@@ -121,6 +123,7 @@ function mettreAJourDashboard(data) {
 document.getElementById('periodeFiltre').addEventListener('change', appliquerFiltres);
 document.getElementById('categorieFiltre').addEventListener('change', appliquerFiltres);
            
+
 
 
 
